@@ -1,8 +1,6 @@
 if $(NT)
 {
 
-SubDir LUAPLUS Src Modules p4 ;
-
 local SRCS =
 		src/clientuserlua.cpp
 		src/clientuserlua.h
@@ -37,6 +35,6 @@ C.IncludeDirectories p4 : $(P4API)/include ;
 C.LinkDirectories p4 : $(P4API)/lib ;
 C.LinkPrebuiltLibraries p4 : libclient librpc libsupp ;
 
-LuaPlusAddModule p4 : $(SRCS) ;
+Lua.CModule p4 : p4 p4_p4api : $(SRCS) ;
 
 }
